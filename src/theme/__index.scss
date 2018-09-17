@@ -1,0 +1,21 @@
+// *------------------------------------*\
+// MAIN STYLES
+// *------------------------------------*/
+
+// BOOTSTRAP VARIABLE PRESETS
+@import 'variables';
+
+// MAIN BOOTSTRAP STYLES
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+// BOOTSTRAP OVERRIDES
+@import 'bootstrap-overrides';
+
+// NORMALIZATIONS
+@import 'normalize';
+
+// CONTAINERS
+@import 'containers';
+
+// OBJECTS
+@import 'objects';

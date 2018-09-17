@@ -1,0 +1,1 @@
+export ReduxPanelForm from './ReduxPanelForm';
