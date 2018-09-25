@@ -1,3 +1,11 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Form, Panel, PanelGroup } from 'react-bootstrap';
@@ -34,20 +42,20 @@ class ReduxPanelForm extends Component {
           id={`${this.props.form}-panel-group`}
           onSelect={this.onPanelSelect}
         >
-          {this.props.formConfig.map((panel, i) => (
-            <Panel key={panel.title} eventKey={i}>
+          {this.props.formConfig.map((section, i) => (
+            <Panel key={section.title} eventKey={i}>
               <Panel.Heading>
                 <Panel.Title toggle>
-                  {panel.title}
+                  {section.title}
                 </Panel.Title>
               </Panel.Heading>
               <Panel.Collapse>
                 <Panel.Body>
-                  {panel.fields.map(item => (
+                  {section.fields.map(field => (
                     <Field
                       component={FieldMapper}
-                      key={item.name}
-                      {...item}
+                      key={field.name}
+                      {...field}
                     />
                   ))}
                 </Panel.Body>

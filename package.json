@@ -2,7 +2,7 @@
   "name": "configuration-based-forms",
   "version": "1.0.0",
   "description": "",
-  "main": "index.jsx",
+  "main": "/src/index.jsx",
   "scripts": {
     "start": "pushd build/; python -m SimpleHTTPServer 3000; popd",
     "dev": "webpack-dev-server --config ./webpack/webpack.build.dev.config.js",
@@ -10,8 +10,8 @@
     "test": "webpack --config ./webpack/webpack.test.config.js; mocha ./test/test.bundle.js",
     "lint": "eslint -c .eslintrc.js --ext .jsx,.js src api bin"
   },
-  "author": "Eliana Crawford",
-  "license": "UNLICENSED",
+  "author": "Swift Navigation",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",

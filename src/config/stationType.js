@@ -1,3 +1,11 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 /*  TO DEFINE A NEW API TYPE, CALL THE FUNCTION makeType AS FOLLOWS:
 
       const someType = makeType('nameYourTypeNameHere');
@@ -41,7 +49,7 @@
       src/helpers/validation.js FOR MORE DETAILS.
 
       options (REQUIRED FOR SELECT FIELDS): ARRAY OF ALLOWED VALUES FOR FIELD. VALUES
-        MUST BE DEFINED IN src/helpers/api.js. SEE src/helpers/api.js FOR MORE DETAILS.
+        MUST BE DEFINED IN src/helpers/enums.js. SEE src/helpers/enums.js FOR MORE DETAILS.
 */
 
 // THESE IMPORTS ARE REQUIRED FOR MOST TYPES *******************************************************
@@ -107,17 +115,5 @@ stationType.notes = {
   label: 'Notes',
   type: allowedTypes.textarea
 };
-
-stationType.state = {
-  default: null,
-  label: 'State/Province',
-  optionMap: enums.state,
-  type: allowedTypes.stateField
-};
-
-// NO EDITS BELOW THIS LINE ************************************************************************
-
-// WRAPPING config IN THIS PROXY WILL CAUSE HELPFUL ERRORS TO BE THROWN WHENEVER
-// ANOTHER FUNCTION ATTEMPTS TO ACCESS A FIELD THAT HAS NOT BEEN DEFINED.
 
 export default stationType;

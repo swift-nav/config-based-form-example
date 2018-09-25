@@ -1,24 +1,8 @@
-# Full-Stack Forms Example
+# Configuration-Driven Forms
 
-This repository demonstrates tooling that we have developed at Swift Navigation
-for building internal data entry applications for our network team. Due to the
-relative newness and rapid growth of the autonomous vehicle industry, the needs
-of our customers change rather frequently and dramatically. The complexity of our
-GPS network and the needs of our field technicians grow as a direct result. In
-order to accommodate new types of station installs, we are often changing the
-structure of our database and the capabilities of our api to enable flexibility
-in the relationships between various hardware components. A discovery that we
-made along the way was that frontend updates were slower and more painful than
-backend changes and often served as blockers to releasing new technology.
-We dreamed of a world in which trivial changes to our database schema, such as
-updating the name of a field, would result in equally simple changes across the
-stack. We longed to create reliable, beautiful, stateful forms that could be generated
-automatically, changed rapidly, and kept up-to-date with our api schemas by a small
-number of people. We wanted our JSX forms to give us meaningful error messages rather
-than failing silently. We believed that our many JS frameworks (React, Redux,
-React-Bootstrap, and Redux Form) could work in harmony and quit warring against each
-other. The example project you see in this repository is the realization of our dream.
+This repository demonstrates tooling that we have developed at Swift Navigation for building internal data entry applications for our network team. Due to the relative newness and rapid growth of the autonomous vehicle industry, the needs of our customers change rather frequently and dramatically. The complexity of our network and the needs of our field technicians grow as a direct result. In order to adequately model and remotely manage all of the hardware in our CONUS network, we are often tweaking our data model and the capabilities of our API. A discovery that we made along the way was that frontend updates were often slow and painful, even for small updates to the data model, and served as blockers to releasing new technology. We were a small engineering team that did not have the bandwidth to spend hours rewriting and debugging a slew of UI forms several times a month. We dreamed of a world in which trivial changes to our database schema, such as adding a new field, would result in equally simple changes across the stack. We longed to create beautiful, stateful, and complex forms in the frontend that could be easily maintained and reworked. We wanted misconfigured JSX forms to give us meaningful error messages rather than failing silently. We believed that our many JS frameworks (React, Redux, React-Bootstrap, and Redux Form) could work in harmony without creating a giant monstrisity of a codebase that is impossible to read or understand. The sample project you see in this repository is what we created as a result.
 
+## Development
 ### Setup
 
 To run our code locally, you will need to install:
@@ -84,3 +68,13 @@ yarn start
 ```
 
 Then open up a browser window and navigate to [localhost:3000](http://localhost:3000).
+
+
+## Copyright
+Copyright (C) 2018 Swift Navigation Inc.
+
+Contact: Swift Navigation <dev@swiftnav.com>
+
+This source is subject to the license found in the file 'LICENSE' which must be be distributed together with this source. All other rights reserved.
+
+THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.

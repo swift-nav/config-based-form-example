@@ -1,3 +1,11 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 import _ from 'lodash';
 /*  TO DEFINE VALIDATION RULES FOR FIELDS, ADD A REGEX EXPRESSION TO THE
     RULES OBJECT. NOTE THAT FIELDS MAY HAVE MULTIPLE TESTS.
@@ -17,7 +25,7 @@ const rules = {
 const reduxFormValidation = passedRegexTest => (passedRegexTest ? undefined : 'error');
 
 // MAP REGEX EXPRESSIONS TO TEST FUNCTIONS (NOTE THAT '' AND null VALUES WILL NOT BE
-// TESTED AGAINST REGEX EXPRESSIONS BY DEFAULT. TO REQUIRED THAT A FIELD BE NON-EMPTY,
+// TESTED AGAINST REGEX EXPRESSIONS BY DEFAULT. TO REQUIRE THAT A FIELD BE NON-EMPTY,
 // INCLUDE validate.nonEmpty IN THE LIST OF TESTS FOR THAT FIELD).
 const validate = {};
 _.forOwn(rules, (regex, key) => {

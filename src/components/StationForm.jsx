@@ -1,9 +1,17 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 import { reduxForm } from 'redux-form';
 import { stationForm, stationType } from '../config';
 import { ReduxPanelForm } from './FormTemplates';
 
 /*
-THE BEAUTY OF OUR FORM ABSTRACTIONS IS THAT WE NO LONGER NEED TO WRITE ANY
+THE BEAUTY OF OUR FORM ABSTRACTION IS THAT WE NO LONGER NEED TO WRITE ANY
 JSX CODE TO BUILD SPECIFIC FORMS. WE MERELY IMPORT THE RELEVENT CONFIGURATION
 FILE, WRAP IT WITH reduxForm, AND PAIR IT WITH THE FORM TEMPLATE OF OUR CHOOSING.
 FIELDS THAT MUST BE PROVIDED TO reduxForm INCLUDE THE FOLLOWING:
@@ -28,7 +36,7 @@ export default StationForm;
 
 
 /*
-TYPICALLY, AS IN THE CASE OF EDIT FORMS, YOU MAY NEED TO GENERATE
+TYPICALLY, AS IN THE CASE OF FORMS THAT PERFORM EDITS, YOU MAY NEED TO GENERATE
 INITIAL VALUES FROM THE REDUX STATE. IN THIS CASE, YOU WILL NEED TO WRAP YOUR
 FORM USING THE CONNECT FUNCTION FROM REACT-REDUX. REFER TO THE EXAMPLE BELOW:
 

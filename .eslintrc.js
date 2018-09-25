@@ -1,6 +1,6 @@
 module.exports = {
   "parserOptions": {
-    "ecma-version": "2017", // Aligns with current babel env preset
+    "ecma-version": "2017",
     "sourceType": "module",
     "ecmaFeatures": {
       "impliedStrict": true,
@@ -32,13 +32,11 @@ module.exports = {
     "func-style": ["error", "expression"],
     "import/default": "error",
     "import/exports-last": "error",
-    // added in next eslint-plugin-import release:
     "import/namespace": ["error", { "allowComputed": true }],
     "import/no-anonymous-default-export": "error",
     "import/no-deprecated": "error",
     "import/no-nodejs-modules": "error",
     "import/no-self-import": "error",
-    // will not be needed in next eslint-config-airbnb release:
     "jsx-a11y/anchor-is-valid": ["error", { "components": [ "Link" ], "specialLink": [ "to" ], aspects: ["noHref", "invalidHref", "preferButton"]}],
     "jsx-a11y/no-onchange": "error",
     "lines-between-class-members": ["error", "always"],
@@ -62,13 +60,11 @@ module.exports = {
     "react/jsx-no-bind": "error",
     "react/jsx-no-target-blank": "off",
     "react/jsx-sort-default-props": "error",
-    // "react/jsx-sort-props": "error",
     "react/sort-prop-types": "error",
     "react/no-array-index-key": "off",
     "react/no-did-mount-set-state": "off",
     "react/no-direct-mutation-state": "error",
     "react/no-typos": "error",
-    // potential performance optimisation if we remove this:
     "react/prefer-stateless-function": "off",
     "react/require-optimization": "error",
     "sort-keys": "error",

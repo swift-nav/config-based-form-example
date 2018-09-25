@@ -1,9 +1,17 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 import _ from 'lodash';
+import { enums } from './index';
 
 export const allowedTypes = {
   checkbox: 'checkbox',
   select: 'select',
-  stateField: 'stateField',
   text: 'text',
   textarea: 'textarea'
 };
@@ -43,10 +51,8 @@ export const checkConfigObj = (obj, property, value, name) => {
 
 
   // CHECK THAT SELECT FIELDS HAVE options ARRAY
-  if (value.type === allowedTypes.select && value.options === undefined) {
-    throw new Error(`Missing property 'options' for field ${property} of type select`);
-  } else if ((value.type === 'stateField') && value.optionMap === undefined) {
-    throw new Error(`Missing property 'optionMap' for field ${property}`);
+  if (value.type === allowedTypes.select && (!value.options && !enums[property])) {
+    throw new Error(`No select options defined for field ${property} of type select`);
   }
   return true;
 };
@@ -69,7 +75,13 @@ export const makeType = name => new Proxy({}, {
     if (process.mode === 'development' || process.mode === 'test') {
       checkConfigObj(obj, property, value, name);
     }
-    Reflect.set(obj, property, { ...value, name: property });
+    Reflect.set(obj, property, {
+      ...value,
+      name: property,
+      options: value.type === allowedTypes.select ?
+        value.options || enums[property]
+        : undefined
+    });
     return true;
   }
 });

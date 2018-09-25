@@ -1,25 +1,26 @@
+// Copyright (C) 2018 Swift Navigation Inc.
+//
+// Contact: Swift Navigation <dev@swiftnav.com>
+//
+// This source is subject to the license found in the file 'LICENSE'
+// which must be be distributed together with this source. All other
+// rights reserved.
+
 import React from 'react';
 import { allowedTypes } from '../../helpers';
-import CheckboxField from './CheckboxField';
-import SelectField from './SelectField';
-import StateField from './StateField';
-import TextareaField from './TextareaField';
-import TextField from './TextField';
+import { CheckboxField, SelectField, TextareaField, TextField } from './index';
 
-const FieldMapper = (args) => {
-  switch (args.type) {
+const FieldMapper = (props) => {
+  switch (props.type) {
     case allowedTypes.checkbox:
-      return <CheckboxField {...args} />;
+      return <CheckboxField {...props} />;
     case allowedTypes.select:
-      return <SelectField {...args} />;
-    case allowedTypes.stateField:
-      return <StateField {...args} />;
+      return <SelectField {...props} />;
     case allowedTypes.text:
-      return <TextField {...args} />;
+      return <TextField {...props} />;
     case allowedTypes.textarea:
-      return <TextareaField {...args} />;
+      return <TextareaField {...props} />;
     default:
-      console.warn(`Undefined field type ${args.type}`);
       return null;
   }
 };
