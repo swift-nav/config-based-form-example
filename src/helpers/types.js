@@ -72,6 +72,9 @@ export const makeType = name => new Proxy({}, {
   },
   set: (obj, property, value) => {
     if (process.mode === 'development' || process.mode === 'test') {
+      if (property === 'Empty' || property === 'Default') {
+        throw new Error(`'${property}' is a reserved keyword.`);
+      }
       checkConfigObj(obj, property, value, name);
     }
     Reflect.set(obj, property, {
