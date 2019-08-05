@@ -48,12 +48,11 @@
       FUNCTIONS HERE. THE FUNCTION MUST BE DEFINED IN src/helpers/validation.js. SEE
       src/helpers/validation.js FOR MORE DETAILS.
 
-      options (REQUIRED FOR SELECT FIELDS): ARRAY OF ALLOWED VALUES FOR FIELD. VALUES
-        MUST BE DEFINED IN src/helpers/enums.js. SEE src/helpers/enums.js FOR MORE DETAILS.
+      options (REQUIRED FOR SELECT FIELDS): ARRAY OF ALLOWED VALUES FOR FIELD.
 */
 
 // THESE IMPORTS ARE REQUIRED FOR MOST TYPES *******************************************************
-import { allowedTypes, enums, validate, makeType } from '../helpers';
+import { allowedTypes, validate, makeType } from '../helpers';
 
 const stationType = makeType('station');
 
@@ -74,9 +73,9 @@ stationType.altitude = {
 };
 
 stationType.condition = {
-  default: enums.condition.default,
+  default: 'UNKNOWN',
   label: 'Condition',
-  options: enums.condition,
+  options: ['WORKING', 'CONNECTIVITY_ISSUES', 'AVAILABILITY_ISSUES', 'UNKNOWN'],
   placeholder: 'select...',
   type: allowedTypes.select
 };
@@ -84,7 +83,7 @@ stationType.condition = {
 stationType.country = {
   default: 'USA',
   label: 'Country',
-  options: enums.country,
+  options: ['AUS', 'USA'],
   type: allowedTypes.select
 };
 

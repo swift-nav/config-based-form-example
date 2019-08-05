@@ -7,7 +7,6 @@
 // rights reserved.
 
 import _ from 'lodash';
-import { enums } from './index';
 
 export const allowedTypes = {
   checkbox: 'checkbox',
@@ -51,7 +50,7 @@ export const checkConfigObj = (obj, property, value, name) => {
 
 
   // CHECK THAT SELECT FIELDS HAVE options ARRAY
-  if (value.type === allowedTypes.select && (!value.options && !enums[property])) {
+  if (value.type === allowedTypes.select && (!value.options || !Array.isArray(value.options))) {
     throw new Error(`No select options defined for field ${property} of type select`);
   }
   return true;
@@ -79,7 +78,7 @@ export const makeType = name => new Proxy({}, {
       ...value,
       name: property,
       options: value.type === allowedTypes.select ?
-        value.options || enums[property]
+        value.options
         : undefined
     });
     return true;
