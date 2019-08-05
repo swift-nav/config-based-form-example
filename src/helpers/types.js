@@ -18,7 +18,12 @@ export const allowedTypes = {
 export const requiredFields = ['default', 'label', 'type'];
 
 export const checkConfigObj = (obj, property, value, name) => {
-  // RUN TESTS TO ENSURE VALID FIELD DEFINITIONS IN DEV/TEST MODES:
+  // MAKE SURE WE ARE NOT ATTEMPTING TO SET A RESERVED KEY
+  if (property === 'Empty' || property === 'Default') {
+    throw new Error(`'${property}' is a reserved keyword.`);
+  }
+
+  // THROW ERROR IF WE ARE ATTEMPTING TO SET THE SAME FIELD MULTIPLE TIMES
   if (obj[property] !== undefined) {
     throw new Error(`Found redundant definition for ${property} in ${name} config`);
   }
@@ -53,9 +58,14 @@ export const checkConfigObj = (obj, property, value, name) => {
   if (value.type === allowedTypes.select && (!value.options || !Array.isArray(value.options))) {
     throw new Error(`No select options defined for field ${property} of type select`);
   }
+
+  // CHECK THAT NON-SELECT FIELDS DO NOT HAVE options SET
+  if (value.type !== allowedTypes.select && value.options !== undefined) {
+    throw new Error(`Field '${property}' of type '${value.type}' should not have options configured.`);
+  }
+
   return true;
 };
-
 
 export const makeType = name => new Proxy({}, {
   get: (obj, property) => {
@@ -72,17 +82,11 @@ export const makeType = name => new Proxy({}, {
   },
   set: (obj, property, value) => {
     if (process.mode === 'development' || process.mode === 'test') {
-      if (property === 'Empty' || property === 'Default') {
-        throw new Error(`'${property}' is a reserved keyword.`);
-      }
       checkConfigObj(obj, property, value, name);
     }
     Reflect.set(obj, property, {
       ...value,
-      name: property,
-      options: value.type === allowedTypes.select ?
-        value.options
-        : undefined
+      name: property
     });
     return true;
   }
